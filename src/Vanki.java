@@ -1,7 +1,8 @@
 
 public class Vanki {
     
-    private int vankinro = 0;    //juokseva numerointi
+    private static int vankinro = 0; //juokseva numero
+    private int omanro;
     private String vankinimi;
     private String sukupuoli;
     private String syntymapv;
@@ -10,22 +11,23 @@ public class Vanki {
     private String vanginhoitaja;
     private String kaytos;
 
-    public Vanki(String vankinimi, String sukupuoli, String syntymapv, String rikos, int tuomioaika, String vanginhoitaja, String kaytos) {
+    public Vanki(String vankinimi, String sukupuoli, String syntymapv, String rikos, int tuomioaika, String vanginhoitaja) {
+        omanro = vankinro++;
         this.vankinimi = vankinimi;
         this.sukupuoli = sukupuoli;
         this.syntymapv = syntymapv;
         this.rikos = rikos;
         this.tuomioaika = tuomioaika;
         this.vanginhoitaja = vanginhoitaja;
-        this.kaytos = kaytos;
+
     }
 
     public int getVankinro() {
-        return vankinro;
+        return omanro;
     }
 
     public void setVankinro(int vankinro) {
-        this.vankinro = vankinro;
+        this.omanro = vankinro;
     }
 
     public String getVankinimi() {
@@ -85,5 +87,7 @@ public class Vanki {
         this.kaytos = kaytos;
     }
     
-    
+    public String toString(){
+        return  (omanro + " " + vankinimi + " " + sukupuoli + " " + syntymapv + " " + rikos + " " + tuomioaika + " " + vanginhoitaja + "\n");
+    }
 }
