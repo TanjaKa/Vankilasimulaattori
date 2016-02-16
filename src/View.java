@@ -6,6 +6,10 @@ import javax.swing.JOptionPane;
 public class View {
 
     public static void vangitNakyma() {
+        //tähän lista, jossa on kaikki vankioliot 
+        //kontrollerin avulla haetaan vankilista
+        //for eachilla läpi kaikki alkiot
+        //toString-metodit
     }
 
     public static void paikkaNakyma() {
