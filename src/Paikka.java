@@ -1,7 +1,7 @@
 
 public class Paikka {
 
-    String paavankila, avovankila, nuorisovankila, naisvankila, vapaana;
+    private String paavankila, avovankila, nuorisovankila, naisvankila, vapaana;
 
     public Paikka(String paavankila, String avovankila, String nuorisovankila, String naisvankila, String vapaana) {
         this.paavankila = paavankila;
