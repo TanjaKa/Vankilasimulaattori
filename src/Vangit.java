@@ -6,7 +6,7 @@ public class Vangit {
         int vankinro =0;    //juokseva numerointi
         String vankinimi;
         boolean sukupuoli;
-        int ikä;
+        int ika;
         String rikos;
         int tuomioaika;
         String vanginhoitaja;
