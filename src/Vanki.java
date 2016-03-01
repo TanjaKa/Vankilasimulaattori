@@ -100,6 +100,6 @@ public class Vanki {
     }
     
     public String toString(){
-        return  (omanro + " " + vankinimi + " " + sukupuoli + " " + syntymapv + " " + rikos + " " + tuomioaika + " " + vanginhoitaja + "\n");
+        return  (omanro + ", "+ vankinimi + ", " + sukupuoli + ", " + syntymapv + " Tuomio: " + rikos + ", " + tuomioaika + "VH:" + vanginhoitaja);
     }
 }
