@@ -7,56 +7,27 @@ import javax.swing.*;
 
 public class Kontrolleri {
 
-    public Kontrolleri() {
+    Kontrolleri kontrolleri;
 
-        View vankinakyma = new View();
+    View view;
+
+    private Vanki vanki;
+    private Vangit vangit;
+
+    public Kontrolleri(View view, Kontrolleri kontrolleri) {
+        this.kontrolleri = kontrolleri;
+
+        this.view = view;
+    }
+
+    public void haeVanki(String nimi) {
+
+        view.setVankiString(vangit.yksiVanki(nimi));
 
     }
 
-    public static void yksiVanki() {
-        
-        Vanki vanki = new Vanki();
-        Vangit vangit = new Vangit();
-        
-        
-        
-        
-        
-        String nimi;
-                
-        
-        do{
-        
-        nimi = JOptionPane.showInputDialog("Anna vangin nimi: [9 lopettaa]");
-        
-        
-        
-        
-            for (Vanki vanki1 :  vangit.vangitLista()) {
-                if (nimi.equals(vanki1.getVankinimi())){
-                    JOptionPane.showMessageDialog(null, vanki1.toString());
-                }
-            }
-        
-       
-        
-        } while (nimi.equals("9"));
-        
-        
-        
-       
-                /* tehdään if, eli jos syötetty nimi löytyy
-                listasta, niin tulostetaan sen vangit tiedot
-                
-                for-loopissa käy läpi listaa
-                
-                Jos samannimisiä löytyy useempia, niin annetaan tieto
-                tms.
-                
-                */
-                
-
-        JOptionPane.showMessageDialog(null, vangit.vangitLista());
+    public void kaikkiVangit() {
+        vangit.VankilanVangittoString();
 
     }
 
