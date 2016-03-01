@@ -3,54 +3,87 @@ Täältä kutsutaan kontrolleria ja annetaan käyttöliittymä (JOptionPane)
  */
 import javax.swing.JOptionPane;
 
-
 public class View {
-    
-    private Kontrolleri vanki = new Kontrolleri();
-    
-     public static void haeVanki() {
-        Kontrolleri.yksiVanki();
-        
-        
+
+    private View view;
+
+    private Kontrolleri kontrolleri;
+
+    private String vankiString;
+
+    public View(View view, Kontrolleri kontrolleri) {
+        this.view = view;
+        this.kontrolleri = kontrolleri;
+
     }
 
-    public static void lisaaVanki() {
-        
+    public String getVankiString() {
+        return vankiString;
     }
 
-    public static void poistaVanki() {
-       
+    public void setVankiString(String vankiString) {
+        this.vankiString = vankiString;
     }
 
-    public static void naytaVangit() {
-        
+    public void haeVanki() {
+
+        String nimi;
+        String loytynytVanki = "";
+        boolean onListalla = false;
+
+        do {
+
+            nimi = JOptionPane.showInputDialog("Anna vangin nimi: [9 lopettaa]");
+
+            if (!nimi.equals("9")) {
+
+                kontrolleri.haeVanki(nimi);
+
+                if (!vankiString.equals("D")) {
+                    JOptionPane.showMessageDialog(null, vankiString);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Vankia ei löytynyt.");
+                }
+            }
+        } while (!nimi.equals("9"));
+
     }
 
-    public static void lisaaKaytos() {
-       
+    public void lisaaVanki() {
+
     }
 
-    public static void vangitNakyma() {
+    public void poistaVanki() {
+
+    }
+
+    public void naytaVangit() {
+
+    }
+
+    public void lisaaKaytos() {
+
+    }
+
+    public void vangitNakyma() {
         //tähän lista, jossa on kaikki vankioliot 
         //kontrollerin avulla haetaan vankilista
         //for eachilla läpi kaikki alkiot
         //toString-metodit
-        
+
         //Vanki vangit = new Vanki();
-        
         // tee tänne uusi valikko
-        
         String menu = "1: Hae vanki\n"
                 + "2: Lisää vanki\n"
                 + "3: Poista vanki\n"
                 + "4: Näytä kaikki vangit\n"
                 + "5: Käytöksen lisäys\n"
-                + "Anna valintasi: (9 lopettaa ohjelman)";
-        
+                + "9. TAKAISIN PÄÄVALIKKOON: ";
+
         /* vai tehdäänkö viimeiseksi valinta, jolla päästään takaisin edelliseen
         valikkoon?
-        */
-        
+         */
         int valinta = 0;
         String lukuStr;
 
@@ -72,48 +105,48 @@ public class View {
                     break;
                 case 5:
                     lisaaKaytos();
-        
+
             }
         } while (valinta != 9);
     }
-     
 
-    public static void paikkaNakyma() {
-        
+    public void paikkaNakyma() {
+
         /* tämän valinnan alla halutaan näyttää käyttäjälle kuinka monta
         vankia kussakin paikassa on. "Naisvankila = 10", listataan
         vankien nimet
         
-        */
+         */
     }
 
-    public static void kaytosNakyma() {
+    public void kaytosNakyma() {
     }
 
-    public static void vankienhoitajatNakyma() {
-        
+    public void vankienhoitajatNakyma() {
+
         /* listataan vankienhoitajat ja kerrotaan kuinka monta vankia kullakin
         on ja listataan vankien nimet
         
-        */
+         */
     }
 
-    public static void tuomiotNakyma() {
-        
+    public void tuomiotNakyma() {
+
         /* tämän valinnan alla halutaan kertoa, kuinka monta kunkin rikoksen-
         tehnyttä vankia löytyy. Esim. "tappo = 3", "törkeä huumausainerikos = 2"
         Kerrotaan myös kunkin rikosnimikkeen alla rikoksien suorittajat?
-        */
-        
+         */
     }
 
     public static void main(String[] args) {
+
         String menu = "1: Vangit\n"
                 + "2: Paikka\n"
                 + "3: Käytös\n"
                 + "4: Vankienhoitajat\n"
                 + "5: Tuomiot\n"
-                + "Anna valintasi: (9 lopettaa ohjelman)";
+                + "9: LOPETA\n"
+                + "Anna valintasi: ";
 
         int valinta = 0;
         String lukuStr;
@@ -136,14 +169,14 @@ public class View {
                     break;
                 case 5:
                     tuomiotNakyma();
+                case 9:
+                    break;
                 default:
                     JOptionPane.showMessageDialog(null, "Virheellinen valinta");
             }
         } while (valinta != 9);
     }
 
-   
-}
-
 // ArrayList<Paikka> vankilat = new ArrayList();
-        // vankilat.add(new Paikka(avovankila));
+    // vankilat.add(new Paikka(avovankila));
+}
