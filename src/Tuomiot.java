@@ -6,6 +6,14 @@ tuomiota jäljellä
 Rikosnimikkeet ja lukumäärä
 */
 public class Tuomiot {
+  public void lisää (double luku) {
+      
+      
+  }
+  public void vahenna (double luku) {
+      
+  }
+    
 
     public Tuomiot(String rikosnimikkeet, double tuomionKokonaispituus, double tuomiotaJaljella, double tuomiotaKulunut) {
         this.rikosnimikkeet = rikosnimikkeet;
@@ -18,4 +26,9 @@ public class Tuomiot {
     double tuomionKokonaispituus;
     double tuomiotaJaljella;
     double tuomiotaKulunut;
-}
+
+  
+     
+        
+    }
+
