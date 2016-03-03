@@ -14,10 +14,8 @@ public class Kontrolleri {
     private Vanki vanki;
     private Vangit vangit;
 
-    public Kontrolleri(View view, Kontrolleri kontrolleri) {
-        this.kontrolleri = kontrolleri;
-
-        this.view = view;
+    public Kontrolleri() {
+        
     }
 
     public void haeVanki(String nimi) {
