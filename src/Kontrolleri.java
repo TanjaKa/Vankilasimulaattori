@@ -1,5 +1,4 @@
 /*
-Täällä on pääohjelma. 
 Kutsutaan muita luokkia.
  */
 import java.util.ArrayList;
