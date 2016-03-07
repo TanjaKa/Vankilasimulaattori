@@ -1,26 +1,28 @@
 /*
 Täältä kutsutaan kontrolleria ja annetaan käyttöliittymä (JOptionPane)
  */
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class View {
-       public static Kontrolleri kontrolleri = new Kontrolleri();
 
+    public static Kontrolleri kontrolleri = new Kontrolleri();
 
+    public Vankienhoitajat vh = new Vankienhoitajat();
+    
+    public Vangit v = new Vangit();
+    
     private String vankiString;
-   
 
     public View() {
-        
 
     }
-    
-    public void alkuValikko(){
-         String menu = "1: Vangit\n"
+
+    public void alkuValikko() {
+        String menu = "1: Vangit\n"
                 + "2: Paikka\n"
-                + "3: Käytös\n"
+                + "3: Vankien käytös\n"
                 + "4: Vankienhoitajat\n"
-                + "5: Tuomiot\n"
                 + "9: LOPETA\n"
                 + "Anna valintasi: ";
 
@@ -43,8 +45,6 @@ public class View {
                 case 4:
                     vankienhoitajatNakyma();
                     break;
-                case 5:
-                    tuomiotNakyma();
                 case 9:
                     break;
                 default:
@@ -95,7 +95,7 @@ public class View {
     }
 
     public void naytaVangit() {
-
+       JOptionPane.showMessageDialog(null, v.VangitToString());
     }
 
     public void lisaaKaytos() {
@@ -151,31 +151,117 @@ public class View {
         /* tämän valinnan alla halutaan näyttää käyttäjälle kuinka monta
         vankia kussakin paikassa on. "Naisvankila = 10", listataan
         vankien nimet
-        
          */
+        String menu = "1: Tarkastele päävankilan vankeja\n"
+                + "2: ...avovankilan vankeja\n"
+                + "3: ...nuorisovankilan vankeja\n"
+                + "4: ...naisvankilan vankeja\n"
+                + "5: ...vapautettuja vankeja\n"
+                + "9. TAKAISIN PÄÄVALIKKOON: ";
+
+        int valinta = 0;
+        String lukuStr;
+
+        do {
+            lukuStr = JOptionPane.showInputDialog(menu);
+            valinta = Integer.parseInt(lukuStr);
+            switch (valinta) {
+                case 1:
+                    tarkastelePaavankila();
+                    break;
+                case 2:
+                    tarkasteleAvovankila();
+                    break;
+                case 3:
+                    tarkasteleNuorisovankila();
+                    break;
+                case 4:
+                    tarkasteleNaisvankila();
+                    break;
+                case 5:
+                    tarkasteleVapaana();
+                    break;
+
+            }
+        } while (valinta != 9);
+    }
+
+    public void tarkastelePaavankila() {
+    }
+
+    public void tarkasteleAvovankila() {
+    }
+
+    public void tarkasteleNuorisovankila() {
+    }
+
+    public void tarkasteleNaisvankila() {
+    }
+
+    public void tarkasteleVapaana() {
     }
 
     public void kaytosNakyma() {
+        int valinta = 0;
+        String lukuStr;
+
+        String menu = "1: Tarkastele vangin käytöstä\n"
+                + "2: Lisää tapahtuma\n"
+                + "3: Poista tapahtuma\n"
+                + "9. TAKAISIN PÄÄVALIKKOON: ";
+
+        do {
+            lukuStr = JOptionPane.showInputDialog(menu);
+            valinta = Integer.parseInt(lukuStr);
+            switch (valinta) {
+                case 1:
+                    tarkasteleKaytosta();
+                    break;
+                case 2:
+                    lisaaTapahtuma();
+                    break;
+                case 3:
+                    poistaTapahtuma();
+                    break;
+
+            }
+        } while (valinta != 9);
+    }
+
+    public void tarkasteleKaytosta() {
+    }
+
+    public void lisaaTapahtuma() {
+    }
+
+    public void poistaTapahtuma() {
     }
 
     public void vankienhoitajatNakyma() {
 
         /* listataan vankienhoitajat ja kerrotaan kuinka monta vankia kullakin
         on ja listataan vankien nimet
-        
          */
+        int valinta = 0;
+        String lukuStr;
+
+        String menu = "1: Listaa vanginhoitajat \n"
+                + "9. TAKAISIN PÄÄVALIKKOON: ";
+
+        do {
+            lukuStr = JOptionPane.showInputDialog(menu);
+            valinta = Integer.parseInt(lukuStr);
+            switch (valinta) {
+                case 1:
+                    listaaVanginhoitajat();
+                    break;
+            }
+        } while (valinta != 9);
     }
 
-    public void tuomiotNakyma() {
-
-        /* tämän valinnan alla halutaan kertoa, kuinka monta kunkin rikoksen-
-        tehnyttä vankia löytyy. Esim. "tappo = 3", "törkeä huumausainerikos = 2"
-        Kerrotaan myös kunkin rikosnimikkeen alla rikoksien suorittajat?
-         */
+    public void listaaVanginhoitajat() {
+       JOptionPane.showMessageDialog(null, vh.VankienhoitajatToString());
     }
-
-   
-
-// ArrayList<Paikka> vankilat = new ArrayList();
-    // vankilat.add(new Paikka(avovankila));
+     
+    
 }
