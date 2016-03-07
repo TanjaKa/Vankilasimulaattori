@@ -49,11 +49,11 @@ public class Vangit {
 
     }
 
-    public String VankilanVangittoString() {
+    public String VangitToString() {
         String vangitStr = "";
 
         for (Vanki v : vangitLista) {
-            vangitStr = vangitStr + v.toString();
+            vangitStr = vangitStr + v.toString() + "\n";
 
         }
         return vangitStr;
