@@ -24,7 +24,7 @@ public class Kontrolleri {
     }
 
     public void kaikkiVangit() {
-        vangit.VankilanVangittoString();
+        vangit.VangitToString();
 
     }
 
