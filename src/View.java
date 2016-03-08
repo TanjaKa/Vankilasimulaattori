@@ -9,10 +9,11 @@ public class View {
     public static Kontrolleri kontrolleri = new Kontrolleri();
 
     public Vankienhoitajat vh = new Vankienhoitajat();
-    
-    public Vangit v = new Vangit();
-    
+
     private String vankiString;
+
+    private int tuomioaika;
+    private String sukupuoli, nimi, syntymapv, rikos, vanginhoitaja, lukuStr;
 
     public View() {
 
@@ -87,7 +88,15 @@ public class View {
     }
 
     public void lisaaVanki() {
-
+        nimi = JOptionPane.showInputDialog(null, "Syötä vangin etu- ja sukunimi: ");
+        sukupuoli = JOptionPane.showInputDialog(null, "Syötä vangin sukupuoli: ");
+        syntymapv = JOptionPane.showInputDialog(null, "Syötä vangin syntymäaika: ");
+        rikos = JOptionPane.showInputDialog(null, "Syötä rikosnimike: ");
+        lukuStr = JOptionPane.showInputDialog(null, "Syötä tuomioaika: ");
+        tuomioaika = Integer.parseInt(lukuStr);
+        vanginhoitaja = JOptionPane.showInputDialog(null, "Syötä vanginhoitaja: ");
+        //vangitLista.add(new Vanki("Tuomas Valtimo", "mies", "05.02.1981", "törkeä raiskaus", 2, "Teemu Kontiolahti"));
+        kontrolleri.lisaaVanki(nimi, sukupuoli, syntymapv, rikos, tuomioaika, vanginhoitaja);
     }
 
     public void poistaVanki() {
@@ -95,7 +104,7 @@ public class View {
     }
 
     public void naytaVangit() {
-       JOptionPane.showMessageDialog(null, v.VangitToString());
+        JOptionPane.showMessageDialog(null, kontrolleri.kaikkiVangit());
     }
 
     public void lisaaKaytos() {
@@ -260,8 +269,7 @@ public class View {
     }
 
     public void listaaVanginhoitajat() {
-       JOptionPane.showMessageDialog(null, vh.VankienhoitajatToString());
+        JOptionPane.showMessageDialog(null, vh.VankienhoitajatToString());
     }
-     
-    
+
 }
