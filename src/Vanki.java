@@ -22,14 +22,7 @@ public class Vanki {
     }
 
     public Vanki() {
-        omanro = vankinro++;
-        this.vankinimi = vankinimi;
-        this.sukupuoli = sukupuoli;
-        this.syntymapv = syntymapv;
-        this.rikos = rikos;
-        this.tuomioaika = tuomioaika;
-        this.vanginhoitaja = vanginhoitaja;
-        this.kaytos = kaytos;
+        
     }
     
 
