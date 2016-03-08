@@ -24,7 +24,7 @@ public class View {
                 + "2: Paikka\n"
                 + "3: Vankien käytös\n"
                 + "4: Vankienhoitajat\n"
-                + "9: LOPETA\n"
+                + "999: LOPETA\n"
                 + "Anna valintasi: ";
 
         int valinta = 0;
@@ -46,12 +46,12 @@ public class View {
                 case 4:
                     vankienhoitajatNakyma();
                     break;
-                case 9:
+                case 999:
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Virheellinen valinta");
             }
-        } while (valinta != 9);
+        } while (valinta != 999);
     }
 
     public String getVankiString() {
@@ -70,9 +70,9 @@ public class View {
 
         do {
 
-            nimi = JOptionPane.showInputDialog("Anna vangin nimi: [9 lopettaa]");
+            nimi = JOptionPane.showInputDialog("Anna vangin nimi: [999 lopettaa]");
 
-            if (!nimi.equals("9")) {
+            if (!nimi.equals("999")) {
 
                 kontrolleri.haeVanki(nimi);
 
@@ -83,7 +83,7 @@ public class View {
                     JOptionPane.showMessageDialog(null, "Vankia ei löytynyt.");
                 }
             }
-        } while (!nimi.equals("9"));
+        } while (!nimi.equals("999"));
 
     }
 
@@ -120,7 +120,60 @@ public class View {
     }
 
     public void lisaaKaytos() {
+        String lukuStr;
+        int vankinumero = 0;
+        do {
+            lukuStr = JOptionPane.showInputDialog(null, kontrolleri.kaikkiVangit());
 
+            vankinumero = Integer.parseInt(lukuStr);
+            if (vankinumero > kontrolleri.vangitLista().size()) {
+                JOptionPane.showMessageDialog(null, "Vankia ei löytynyt. ");
+            }
+        } while (vankinumero > kontrolleri.vangitLista().size());
+
+        String menu = "1: Hyvä käytös\n"
+                + "2. Hengen pelastaminen\n"
+                + "3. Kunnianloukkaus\n"
+                + "4. Varkaus\n"
+                + "5. Karkaaminen\n"
+                + "6. Törkeä väkivaltarikos\n"
+                + "7. Tappo\n"
+                + "999. Poistu: ";
+
+        int valinta = 0;
+        int tuomio = 0;
+
+        do {
+            lukuStr = JOptionPane.showInputDialog(menu);
+            valinta = Integer.parseInt(lukuStr);
+            switch (valinta) {
+                case 1:
+                    tuomio = -2;
+                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    break;
+                case 2:
+                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    break;
+                case 3:
+                    tuomio = 1;
+                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    break;
+                case 4:
+                    tuomio = 2;
+                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    break;
+                case 5:
+                    tuomio = 5;
+                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                case 6:
+                    tuomio = 5;
+                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    break;
+                case 7:
+                    tuomio = 10;
+                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+            }
+        } while (valinta != 999);
     }
 
     public void vangitNakyma() {
@@ -136,7 +189,7 @@ public class View {
                 + "3: Poista vanki\n"
                 + "4: Näytä kaikki vangit\n"
                 + "5: Käytöksen lisäys\n"
-                + "9. TAKAISIN PÄÄVALIKKOON: ";
+                + "999: TAKAISIN PÄÄVALIKKOON: ";
 
         /* vai tehdäänkö viimeiseksi valinta, jolla päästään takaisin edelliseen
         valikkoon?
@@ -162,9 +215,8 @@ public class View {
                     break;
                 case 5:
                     lisaaKaytos();
-
             }
-        } while (valinta != 9);
+        } while (valinta != 999);
     }
 
     public void paikkaNakyma() {
@@ -178,7 +230,7 @@ public class View {
                 + "3: ...nuorisovankilan vankeja\n"
                 + "4: ...naisvankilan vankeja\n"
                 + "5: ...vapautettuja vankeja\n"
-                + "9. TAKAISIN PÄÄVALIKKOON: ";
+                + "999: TAKAISIN PÄÄVALIKKOON: ";
 
         int valinta = 0;
         String lukuStr;
@@ -204,7 +256,7 @@ public class View {
                     break;
 
             }
-        } while (valinta != 9);
+        } while (valinta != 999);
     }
 
     public void tarkastelePaavankila() {
@@ -229,7 +281,7 @@ public class View {
         String menu = "1: Tarkastele vangin käytöstä\n"
                 + "2: Lisää tapahtuma\n"
                 + "3: Poista tapahtuma\n"
-                + "9. TAKAISIN PÄÄVALIKKOON: ";
+                + "999: TAKAISIN PÄÄVALIKKOON: ";
 
         do {
             lukuStr = JOptionPane.showInputDialog(menu);
@@ -246,7 +298,7 @@ public class View {
                     break;
 
             }
-        } while (valinta != 9);
+        } while (valinta != 999);
     }
 
     public void tarkasteleKaytosta() {
@@ -267,7 +319,7 @@ public class View {
         String lukuStr;
 
         String menu = "1: Listaa vanginhoitajat \n"
-                + "9. TAKAISIN PÄÄVALIKKOON: ";
+                + "999: TAKAISIN PÄÄVALIKKOON: ";
 
         do {
             lukuStr = JOptionPane.showInputDialog(menu);
@@ -277,7 +329,7 @@ public class View {
                     listaaVanginhoitajat();
                     break;
             }
-        } while (valinta != 9);
+        } while (valinta != 999);
     }
 
     public void listaaVanginhoitajat() {
