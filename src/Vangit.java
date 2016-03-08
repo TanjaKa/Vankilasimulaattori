@@ -92,16 +92,18 @@ public class Vangit {
 
     public String yksiVanki(String nimi) {
 
-        String ilmotus = "";
+        String ilmoitus = "";
 
         for (Vanki v : vangitLista) {
             if (nimi.equals(v.getVankinimi())) {
-                ilmotus = v.toString();
+                if (tarkista(v.getVankinimi()) == true) {
+                    return v.toString();
 
-            } else {
-                ilmotus = "D";
+                } else {
+                    return "D";
+                }
             }
         }
-        return ilmotus;
+        return "D";
     }
 }
