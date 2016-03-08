@@ -6,9 +6,16 @@ public class Vangit {
     private ArrayList<Vanki> vangitLista;
 
     private Vanki vanki;
+    private Paavankila paavankila;
+    private Naisvankila naisvankila;
+    private Vapaana vapaana;
 
-    public Vangit() {
+    public Vangit(Paavankila paavankila, Naisvankila naisvankila, Vapaana vapaana) {
         vangitLista = new ArrayList<Vanki>();
+
+        this.paavankila = paavankila;
+        this.naisvankila = naisvankila;
+        this.vapaana = vapaana;
 
         // Vanginhoitajat: Teemu Kontiolahti, Lauri Ronkainen, Maiju Mäkelä
         vangitLista.add(new Vanki("Tuomas Valtimo", "mies", "05.02.1981", "törkeä raiskaus", 2, "Teemu Kontiolahti"));
@@ -21,6 +28,13 @@ public class Vangit {
         vangitLista.add(new Vanki("Anne Pasanen", "nainen", "01.12.1968", "törkeä huumausainerikos", 1, "Lauri Ronkainen"));
         vangitLista.add(new Vanki("Kata Lankinen", "nainen", "06.08.1995", "törkeä huumausainerikos", 1, "Maiju Mäkelä"));
 
+        for (Vanki sijoitetaan : vangitLista) {
+            if (sijoitetaan.getSukupuoli().equals("nainen")) {
+                naisvankila.lisaaVanki(sijoitetaan);
+            } else {
+                paavankila.lisaaVanki(sijoitetaan);
+            }
+        }
     }
 
     public ArrayList<Vanki> vangitLista() {
@@ -32,7 +46,13 @@ public class Vangit {
         if (tarkista(vankinimi) == true) {
             return true;
         } else {
-            vangitLista.add(new Vanki(vankinimi, sukupuoli, syntymapv, rikos, tuomioaika, vanginhoitaja));
+            Vanki uusivanki = new Vanki(vankinimi, sukupuoli, syntymapv, rikos, tuomioaika, vanginhoitaja);
+            vangitLista.add(uusivanki);
+            if (uusivanki.getSukupuoli().equals("nainen")) {
+                naisvankila.lisaaVanki(uusivanki);
+            } else {
+                paavankila.lisaaVanki(uusivanki);
+            }
         }
 
         return false;
