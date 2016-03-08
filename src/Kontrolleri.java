@@ -12,9 +12,33 @@ public class Kontrolleri {
 
     private Vanki vanki;
     private Vangit vangit;
+    private Paavankila paavankila;
+    private Naisvankila naisvankila;
+    private Vapaana vapaana;
 
     public Kontrolleri() {
-        vangit = new Vangit();
+
+        paavankila = new Paavankila();
+        naisvankila = new Naisvankila();
+        vapaana = new Vapaana();
+
+        vangit = new Vangit(paavankila, naisvankila, vapaana);
+    }
+
+    public String haePaavankila() {
+        return paavankila.VankilanVangittoString();
+    }
+
+    public String haeNaisvankila() {
+        return naisvankila.VankilanVangittoString();
+    }
+
+    public String haeVapaana() {
+        if (vapaana.getVangitLista().isEmpty()) {
+            return "Ei vapautettuja vankeja. ";
+        } else {
+            return vapaana.VankilanVangittoString();
+        }
     }
 
     public void haeVanki(String nimi) {
@@ -46,16 +70,16 @@ public class Kontrolleri {
         }
     }
 
-    public void lisaaKaytos (int vankinumero, int tuomio) {
-    vanki = vangit.vangitLista().get(vankinumero);
-    vanki.setTuomioaika(tuomio);
+    public void lisaaKaytos(int vankinumero, int tuomio) {
+        vanki = vangit.vangitLista().get(vankinumero);
+        vanki.setTuomioaika(tuomio);
     }
-    
-    public ArrayList<Vanki> vangitLista(){
+
+    public ArrayList<Vanki> vangitLista() {
         return vangit.vangitLista();
     }
-   
- /* tänne halutaan määrätä, että mikäli käyttäjä valitsee alkuvalikosta
+
+    /* tänne halutaan määrätä, että mikäli käyttäjä valitsee alkuvalikosta
         "vangit", niin aukeaa uusi switch case -valikko, jossa valinnat:
     
         - Hae vanki
