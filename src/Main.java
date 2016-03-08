@@ -10,9 +10,8 @@ public class Main {
 //        view.alkuValikko();
         String menu = "1: Vangit\n"
                 + "2: Paikka\n"
-                + "3: Vankien käytös\n"
-                + "4: Vankienhoitajat\n"
-                + "9: LOPETA\n"
+                + "3: Vankienhoitajat\n"
+                + "999: LOPETA\n"
                 + "Anna valintasi: ";
 
         int valinta = 0;
@@ -29,17 +28,14 @@ public class Main {
                     view.paikkaNakyma();
                     break;
                 case 3:
-                    view.kaytosNakyma();
-                    break;
-                case 4:
                     view.vankienhoitajatNakyma();
                     break;
-                case 9:
+                case 999:
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Virheellinen valinta");
             }
-        } while (valinta != 9);
+        } while (valinta != 999);
     }
 
 }
