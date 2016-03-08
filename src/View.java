@@ -123,7 +123,8 @@ public class View {
         String lukuStr;
         int vankinumero = 0;
         do {
-            lukuStr = JOptionPane.showInputDialog(null, kontrolleri.kaikkiVangit());
+            lukuStr = JOptionPane.showInputDialog(null, kontrolleri.kaikkiVangit()+ "\n"+
+            "Valitse vankinumero, jolle käytös lisätään: ");
 
             vankinumero = Integer.parseInt(lukuStr);
             if (vankinumero > kontrolleri.vangitLista().size()) {
@@ -131,13 +132,13 @@ public class View {
             }
         } while (vankinumero > kontrolleri.vangitLista().size());
 
-        String menu = "1: Hyvä käytös\n"
-                + "2. Hengen pelastaminen\n"
-                + "3. Kunnianloukkaus\n"
-                + "4. Varkaus\n"
-                + "5. Karkaaminen\n"
-                + "6. Törkeä väkivaltarikos\n"
-                + "7. Tappo\n"
+        String menu = "1: Hyvä käytös (-2 v)\n"
+                + "2. Hengen pelastaminen (armahdus)\n"
+                + "3. Kunnianloukkaus (+1 v)\n"
+                + "4. Varkaus (+2 v)\n"
+                + "5. Karkaaminen (+5 v)\n"
+                + "6. Törkeä väkivaltarikos (+5 v)\n"
+                + "7. Tappo (+10 v)\n"
                 + "999. Poistu: ";
 
         int valinta = 0;
@@ -149,30 +150,32 @@ public class View {
             switch (valinta) {
                 case 1:
                     tuomio = -2;
-                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    kontrolleri.lisaaKaytos(vankinumero, tuomio);
                     break;
                 case 2:
-                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    kontrolleri.lisaaKaytos(vankinumero, tuomio);
                     break;
                 case 3:
                     tuomio = 1;
-                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    kontrolleri.lisaaKaytos(vankinumero, tuomio);
                     break;
                 case 4:
                     tuomio = 2;
-                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    kontrolleri.lisaaKaytos(vankinumero, tuomio);
                     break;
                 case 5:
                     tuomio = 5;
-                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    kontrolleri.lisaaKaytos(vankinumero, tuomio);
                 case 6:
                     tuomio = 5;
-                    kontrolleri.lisaaKaytos(vankinro, tuomio);
+                    kontrolleri.lisaaKaytos(vankinumero, tuomio);
                     break;
                 case 7:
                     tuomio = 10;
-                    kontrolleri.lisaaKaytos(vankinro, tuomio);
-            }
+                    kontrolleri.lisaaKaytos(vankinumero, tuomio);
+            } 
+            if (valinta >=0 && valinta <8){
+                    JOptionPane.showMessageDialog(null, "Käytös lisätty järjestelmään. ");}
         } while (valinta != 999);
     }
 
