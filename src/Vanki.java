@@ -19,7 +19,6 @@ public class Vanki {
         this.rikos = rikos;
         this.tuomioaika = tuomioaika;
         this.vanginhoitaja = vanginhoitaja;
-
     }
 
     public Vanki() {
