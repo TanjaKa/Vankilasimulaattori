@@ -27,26 +27,37 @@ public class Vangit {
         return vangitLista;
     }
 
-    public void lisaaVanki(String vankinimi, String sukupuoli, String syntymapv, String rikos, int tuomioaika, String vanginhoitaja) {
-        vangitLista.add(new Vanki(vankinimi, sukupuoli, syntymapv, rikos, tuomioaika, vanginhoitaja));
+    public boolean lisaaVanki(String vankinimi, String sukupuoli, String syntymapv, String rikos, int tuomioaika, String vanginhoitaja) {
 
+        if (tarkista(vankinimi) == true) {
+            return true;
+        } else {
+            vangitLista.add(new Vanki(vankinimi, sukupuoli, syntymapv, rikos, tuomioaika, vanginhoitaja));
+        }
+
+        return false;
+    }
+
+    public boolean tarkista(String vankinimi) {
+        for (Vanki v : vangitLista) {
+            if (vankinimi.equals(v.getVankinimi())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean poistaVanki(int vankinro) {
 
         for (Vanki v : vangitLista) {
             if (vankinro == v.getVankinro()) {
-                vangitLista.remove(v);
-                return true;
-            } else {
-                return false;
-
+                if (tarkista(v.getVankinimi()) == true) {
+                    vangitLista.remove(v);
+                    return true;
+                }
             }
-
         }
-
         return false;
-
     }
 
     public String VangitToString() {
