@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class View {
 
-    public static Kontrolleri kontrolleri = new Kontrolleri();
+    private Kontrolleri kontrolleri;
 
     public Vankienhoitajat vh = new Vankienhoitajat();
 
@@ -16,7 +16,7 @@ public class View {
     private String sukupuoli, nimi, syntymapv, rikos, vanginhoitaja, lukuStr;
 
     public View() {
-
+        kontrolleri = new Kontrolleri (this);
     }
 
     public void alkuValikko() {
@@ -61,7 +61,6 @@ public class View {
     public void haeVanki() {
 
         String nimi;
-        String loytynytVanki = "";
         boolean onListalla = false;
 
         do {
@@ -149,6 +148,7 @@ public class View {
                     kontrolleri.lisaaKaytos(vankinumero, tuomio);
                     break;
                 case 2:
+                    tuomio = 100;
                     kontrolleri.lisaaKaytos(vankinumero, tuomio);
                     break;
                 case 3:
