@@ -54,15 +54,7 @@ public class Kontrolleri {
     public ArrayList<Vanki> vangitLista(){
         return vangit.vangitLista();
     }
-    /* public boolean poistaVanki(int vankinro) {
-
-        for (Vanki v : vangitLista) {
-            if (vankinro == v.getVankinro()) {
-                vangitLista.remove(v);
-                return true;
-            } else {
-                return false;
-            }*/
+   
  /* tänne halutaan määrätä, että mikäli käyttäjä valitsee alkuvalikosta
         "vangit", niin aukeaa uusi switch case -valikko, jossa valinnat:
     
