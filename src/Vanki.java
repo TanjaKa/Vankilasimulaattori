@@ -71,8 +71,8 @@ public class Vanki {
         return tuomioaika;
     }
 
-    public void setTuomioaika(int tuomioaika) {
-        this.tuomioaika = tuomioaika;
+    public void setTuomioaika(int tuomio) {
+        tuomioaika = tuomioaika + tuomio;
     }
 
     public String getVanginhoitaja() {
