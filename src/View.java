@@ -79,7 +79,6 @@ public class View {
                 }
             }
         } while (!nimi.equals("999"));
-
     }
 
     public void lisaaVanki() {
