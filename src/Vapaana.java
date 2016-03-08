@@ -4,11 +4,11 @@ import java.util.ArrayList;
 public class Vapaana {
 
     private ArrayList<Vanki> vangitLista;
-
+    
     private Vanki vanki;
 
     public Vapaana() {
-
+        vangitLista = new ArrayList();
     }
 
     public ArrayList<Vanki> getVangitLista() {
@@ -27,13 +27,9 @@ public class Vapaana {
                 return true;
             } else {
                 return false;
-
             }
-
         }
-
         return false;
-
     }
 
     public String VankilanVangittoString() {
