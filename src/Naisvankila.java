@@ -8,7 +8,7 @@ public class Naisvankila {
     private Vanki vanki;
 
     public Naisvankila() {
-
+        vangitLista = new ArrayList();
     }
 
     public ArrayList<Vanki> getVangitLista() {
