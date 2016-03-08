@@ -12,7 +12,7 @@ public class View {
 
     private String vankiString;
 
-    private int tuomioaika;
+    private int tuomioaika, vankinro;
     private String sukupuoli, nimi, syntymapv, rikos, vanginhoitaja, lukuStr;
 
     public View() {
@@ -96,11 +96,23 @@ public class View {
         tuomioaika = Integer.parseInt(lukuStr);
         vanginhoitaja = JOptionPane.showInputDialog(null, "Syötä vanginhoitaja: ");
         //vangitLista.add(new Vanki("Tuomas Valtimo", "mies", "05.02.1981", "törkeä raiskaus", 2, "Teemu Kontiolahti"));
-        kontrolleri.lisaaVanki(nimi, sukupuoli, syntymapv, rikos, tuomioaika, vanginhoitaja);
+
+        if (kontrolleri.lisaaVanki(nimi, sukupuoli, syntymapv, rikos, tuomioaika, vanginhoitaja) == true) {
+            JOptionPane.showMessageDialog(null, "Vanki on jo järjestelmässä. ");
+        } else {
+            JOptionPane.showMessageDialog(null, "Vanki lisätty järjestelmään. ");
+        }
     }
 
     public void poistaVanki() {
+        lukuStr = JOptionPane.showInputDialog(null, "Syötä poistettavan vangin vankinumero: ");
+        vankinro = Integer.parseInt(lukuStr);
 
+        if (kontrolleri.poistaVanki(vankinro) == true) {
+            JOptionPane.showMessageDialog(null, "Vanki on poistettu järjestelmästä. ");
+        } else {
+            JOptionPane.showMessageDialog(null, "Vankia ei löydy. ");
+        }
     }
 
     public void naytaVangit() {
