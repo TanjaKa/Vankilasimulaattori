@@ -46,6 +46,14 @@ public class Kontrolleri {
         }
     }
 
+    public void lisaaKaytos (int vankinumero, int tuomio) {
+    vanki = vangit.vangitLista().get(vankinumero);
+    vanki.setTuomioaika(tuomio);
+    }
+    
+    public ArrayList<Vanki> vangitLista(){
+        return vangit.vangitLista();
+    }
     /* public boolean poistaVanki(int vankinro) {
 
         for (Vanki v : vangitLista) {
