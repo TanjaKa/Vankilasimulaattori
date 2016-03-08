@@ -24,16 +24,38 @@ public class Kontrolleri {
     }
 
     public String kaikkiVangit() {
-    return vangit.VangitToString();
+        return vangit.VangitToString();
 
     }
 
-    
-    public void lisaaVanki(String nimi, String sukupuoli, String syntymapv, String rikos, int vankinro, String vanginhoitaja) {
-        vangit.lisaaVanki(nimi, sukupuoli, syntymapv, rikos, vankinro, vanginhoitaja);
+    public boolean lisaaVanki(String nimi, String sukupuoli, String syntymapv, String rikos, int vankinro, String vanginhoitaja) {
+
+        if (vangit.lisaaVanki(nimi, sukupuoli, syntymapv, rikos, vankinro, vanginhoitaja) == true) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    
-    /* tänne halutaan määrätä, että mikäli käyttäjä valitsee alkuvalikosta
+
+    public boolean poistaVanki(int vankinro) {
+
+        if (vangit.poistaVanki(vankinro) == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /* public boolean poistaVanki(int vankinro) {
+
+        for (Vanki v : vangitLista) {
+            if (vankinro == v.getVankinro()) {
+                vangitLista.remove(v);
+                return true;
+            } else {
+                return false;
+            }*/
+ /* tänne halutaan määrätä, että mikäli käyttäjä valitsee alkuvalikosta
         "vangit", niin aukeaa uusi switch case -valikko, jossa valinnat:
     
         - Hae vanki
