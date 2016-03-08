@@ -3,10 +3,8 @@ import javax.swing.JOptionPane;
 
 public class Main {
 
-    public static View view = new View();
-
     public static void main(String[] args) {
-
+        View view = new View();
 //        view.alkuValikko();
         String menu = "1: Vangit\n"
                 + "2: Paikka\n"
