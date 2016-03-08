@@ -9,6 +9,7 @@ public class Paavankila {
 
     public Paavankila() {
 
+        vangitLista = new ArrayList();
     }
 
     public ArrayList<Vanki> getVangitLista() {
