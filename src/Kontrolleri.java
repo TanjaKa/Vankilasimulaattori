@@ -14,7 +14,7 @@ public class Kontrolleri {
     private Vangit vangit;
 
     public Kontrolleri() {
-        
+        vangit = new Vangit();
     }
 
     public void haeVanki(String nimi) {
@@ -23,11 +23,16 @@ public class Kontrolleri {
 
     }
 
-    public void kaikkiVangit() {
-        vangit.VangitToString();
+    public String kaikkiVangit() {
+    return vangit.VangitToString();
 
     }
 
+    
+    public void lisaaVanki(String nimi, String sukupuoli, String syntymapv, String rikos, int vankinro, String vanginhoitaja) {
+        vangit.lisaaVanki(nimi, sukupuoli, syntymapv, rikos, vankinro, vanginhoitaja);
+    }
+    
     /* tänne halutaan määrätä, että mikäli käyttäjä valitsee alkuvalikosta
         "vangit", niin aukeaa uusi switch case -valikko, jossa valinnat:
     
