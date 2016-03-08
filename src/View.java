@@ -22,8 +22,7 @@ public class View {
     public void alkuValikko() {
         String menu = "1: Vangit\n"
                 + "2: Paikka\n"
-                + "3: Vankien käytös\n"
-                + "4: Vankienhoitajat\n"
+                + "3: Vankienhoitajat\n"
                 + "999: LOPETA\n"
                 + "Anna valintasi: ";
 
@@ -41,9 +40,6 @@ public class View {
                     paikkaNakyma();
                     break;
                 case 3:
-                    kaytosNakyma();
-                    break;
-                case 4:
                     vankienhoitajatNakyma();
                     break;
                 case 999:
@@ -180,13 +176,7 @@ public class View {
     }
 
     public void vangitNakyma() {
-        //tähän lista, jossa on kaikki vankioliot 
-        //kontrollerin avulla haetaan vankilista
-        //for eachilla läpi kaikki alkiot
-        //toString-metodit
 
-        //Vanki vangit = new Vanki();
-        // tee tänne uusi valikko
         String menu = "1: Hae vanki\n"
                 + "2: Lisää vanki\n"
                 + "3: Poista vanki\n"
@@ -194,9 +184,6 @@ public class View {
                 + "5: Käytöksen lisäys\n"
                 + "999: TAKAISIN PÄÄVALIKKOON: ";
 
-        /* vai tehdäänkö viimeiseksi valinta, jolla päästään takaisin edelliseen
-        valikkoon?
-         */
         int valinta = 0;
         String lukuStr;
 
@@ -229,10 +216,8 @@ public class View {
         vankien nimet
          */
         String menu = "1: Tarkastele päävankilan vankeja\n"
-                + "2: ...avovankilan vankeja\n"
-                + "3: ...nuorisovankilan vankeja\n"
-                + "4: ...naisvankilan vankeja\n"
-                + "5: ...vapautettuja vankeja\n"
+                + "2: Tarkastele naisvankilan vankeja\n"
+                + "3: Tarkastele vapautettuja vankeja\n"
                 + "999: TAKAISIN PÄÄVALIKKOON: ";
 
         int valinta = 0;
@@ -246,62 +231,25 @@ public class View {
                     tarkastelePaavankila();
                     break;
                 case 2:
-                    tarkasteleAvovankila();
-                    break;
-                case 3:
-                    tarkasteleNuorisovankila();
-                    break;
-                case 4:
                     tarkasteleNaisvankila();
                     break;
-                case 5:
+                case 3:
                     tarkasteleVapaana();
                     break;
-
             }
         } while (valinta != 999);
     }
 
     public void tarkastelePaavankila() {
-    }
-
-    public void tarkasteleAvovankila() {
-    }
-
-    public void tarkasteleNuorisovankila() {
+        JOptionPane.showMessageDialog(null, kontrolleri.haePaavankila());
     }
 
     public void tarkasteleNaisvankila() {
+        JOptionPane.showMessageDialog(null, kontrolleri.haeNaisvankila());
     }
 
     public void tarkasteleVapaana() {
-    }
-
-    public void kaytosNakyma() {
-        int valinta = 0;
-        String lukuStr;
-
-        String menu = "1: Tarkastele vangin käytöstä\n"
-                + "2: Lisää tapahtuma\n"
-                + "3: Poista tapahtuma\n"
-                + "999: TAKAISIN PÄÄVALIKKOON: ";
-
-        do {
-            lukuStr = JOptionPane.showInputDialog(menu);
-            valinta = Integer.parseInt(lukuStr);
-            switch (valinta) {
-                case 1:
-                    tarkasteleKaytosta();
-                    break;
-                case 2:
-                    lisaaTapahtuma();
-                    break;
-                case 3:
-                    poistaTapahtuma();
-                    break;
-
-            }
-        } while (valinta != 999);
+        JOptionPane.showMessageDialog(null, kontrolleri.haeVapaana());
     }
 
     public void tarkasteleKaytosta() {
