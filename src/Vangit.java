@@ -18,8 +18,8 @@ public class Vangit {
         this.vapaana = vapaana;
 
         // Vanginhoitajat: Teemu Kontiolahti, Lauri Ronkainen, Maiju Mäkelä
-        vangitLista.add(new Vanki("Tuomas Valtimo", "mies", "05.02.1981", "törkeä raiskaus", 2, "Teemu Kontiolahti"));
-        vangitLista.add(new Vanki("Ari Eronen", "mies", "11.06.1951", "törkeä raiskaus", 2, "Lauri Ronkainen"));
+        vangitLista.add(new Vanki("Tuomas Valtimo", "mies", "05.02.1981", "talousrikos", 2, "Teemu Kontiolahti"));
+        vangitLista.add(new Vanki("Ari Eronen", "mies", "11.06.1951", "talousrikos", 2, "Lauri Ronkainen"));
         vangitLista.add(new Vanki("Ville Mutanen", "mies", "09.10.1969", "tappo", 8, "Teemu Kontiolahti"));
         vangitLista.add(new Vanki("Lauri Paltamo", "mies", "12.12.1956", "törkeä huumausainerikos", 1, "Lauri Ronkainen"));
         vangitLista.add(new Vanki("Pirjo Kärkkäinen", "nainen", "25.04.1972", "tappo", 8, "Teemu Kontiolahti"));
